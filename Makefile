@@ -6,13 +6,13 @@ all :dir wol package
 ROOTDIR = $(CURDIR)/../
 
 toolchain := $(ROOTDIR)toolchain/
-xqlibs := $(ROOTDIR)/
-CXX = $(toolchain)/bin/mipsel-xiaomi-linux-uclibc-g++
-CC =$(toolchain)/bin/mipsel-xiaomi-linux-uclibc-gcc
+xqlibs := $(ROOTDIR)
+CXX = $(toolchain)bin/arm-xiaomi-linux-uclibcgnueabi-g++
+CC =$(toolchain)bin/arm-xiaomi-linux-uclibcgnueabi-gcc
 
 
-LIB_DIR = -L$(xqlibs)/lib/ -Wl,-rpath-link,$(toolchain)/lib/
-CXXFLAGS += -I$(xqlibs)/include/
+LIB_DIR = -L$(xqlibs)lib -Wl,-rpath-link,$(toolchain)lib
+CXXFLAGS += -I$(xqlibs)include
 LDFLAGS = -Wall -O2 -lxmrouter \
  -lthrift -lssl -lcrypto -lconfig++ -ljson-c -lboost_atomic \
  -lboost_system -lboost_filesystem -lthriftnb -levent -lmbedtls -lcurl -lz -lboost_thread -lpthread \
